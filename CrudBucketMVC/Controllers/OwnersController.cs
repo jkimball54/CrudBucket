@@ -1,6 +1,6 @@
 ﻿using CrudBucketMVC.DataAccess;
 using Microsoft.AspNetCore.Mvc;
-
+using CrudBucketMVC.Models;
 namespace CrudBucketMVC.Controllers
 {
     public class OwnersController : Controller
@@ -27,6 +27,16 @@ namespace CrudBucketMVC.Controllers
         public IActionResult New()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Index(Owner owner)
+        {
+            _context.Owners.Add(owner);
+            _context.SaveChanges();
+
+            var newOwnerId = owner.Id;
+
+            return Redirect($"/Owners/{newOwnerId}");
         }
     }
 }
