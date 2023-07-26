@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Owner>
+
+<h1>List of People with Vehicles</h1>
+
+<ul>
+    @foreach (var person in Model)
+    {
+        <li><a href="/Owners/@person.Id">@person.Name</a></li>
+    }
+</ul>
