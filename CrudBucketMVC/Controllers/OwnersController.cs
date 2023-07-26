@@ -23,5 +23,10 @@ namespace CrudBucketMVC.Controllers
             var owner = _context.Owners.Find(id);
             return View(owner);
         }
+        [Route("/Owners/New")]
+        public IActionResult New()
+        {
+            return View();
+        }
     }
 }
