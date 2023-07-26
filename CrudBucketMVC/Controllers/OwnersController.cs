@@ -38,5 +38,21 @@ namespace CrudBucketMVC.Controllers
 
             return Redirect($"/Owners/{newOwnerId}");
         }
+        [Route("/Owners/{id:int}/Edit")]
+        public IActionResult Edit(int id)
+        {
+            var owner = _context.Owners.Find(id);
+            return View(owner);
+        }
+        [HttpPost]
+        [Route("Owners/{id:int}")]
+        public IActionResult Update(int id, Owner owner)
+        {
+            owner.Id = id;
+            _context.Owners.Update(owner);
+            _context.SaveChanges();
+
+            return Redirect($"/Owners/{owner.Id}");
+        }
     }
 }

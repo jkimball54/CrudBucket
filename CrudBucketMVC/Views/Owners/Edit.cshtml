@@ -1,0 +1,11 @@
+﻿@model Owner
+
+<form method="post" action="/Owners/@Model.Id">
+    <label for="Name">Name:</label>
+    <input type="text" id="Name" name="Name" value="@Model.Name"></input>
+    <br>
+    <label for="Age">Age:</label>
+    <input type="number" id="Age" name="Age" value="@Model.Age"></input>
+    <br>
+    <button type="Submit">Update Owner</button>
+</form>
